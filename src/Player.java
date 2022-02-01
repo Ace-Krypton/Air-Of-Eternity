@@ -12,4 +12,5 @@ public class Player {
     public static double balance;
     String name;
     int inventorySpace;
+    int defaultBackpack = 10;
 }

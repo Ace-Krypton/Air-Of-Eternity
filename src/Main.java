@@ -28,11 +28,22 @@ public class Main {
             }
 
             case "3" -> {
-                //First menu in shop
-                menuShop();
 
                 //Getting instance and creating object
                 Shop shop = new Shop();
+                Player player = new Player();
+
+                //First menu in shop
+                if (player.inventorySpace > player.defaultBackpack) {
+                    System.out.println("---------------------------------------------------------------");
+                    System.out.println("""
+                            You don't have empty space in your inventory
+                            You either buy new backpack or remove your items
+                            Type "remove" and "item name" to remove your item
+                            If you don't want to remove item from your inventory go and buy fucking backpack you idiot\s""");
+
+                }
+                menuShop();
 
                 //User input and Switch
                 System.out.print("> ");
@@ -82,7 +93,7 @@ public class Main {
                             //Flow Control
                             if (userInput.equalsIgnoreCase("Y")) {
                                 System.out.println("---------------------------------------------------------------");
-                                shop.showCooks();2
+                                shop.showCooks();
                                 System.out.println("\n");
                             }
                             else break;
@@ -102,6 +113,7 @@ public class Main {
                                 if (Player.balance >= Shop.getBreadPrice()) {
                                     Player.balance -= Shop.getBreadPrice();
                                     Player.inventory.add("Bread");
+                                    player.inventorySpace++;
                                 }
 
                                 else System.out.println("Sorry, you don't have sufficient funds");
@@ -112,6 +124,7 @@ public class Main {
                                 if (Player.balance >= Shop.getRollPrice()) {
                                     Player.balance -= Shop.getRollPrice();
                                     Player.inventory.add("Roll");
+                                    player.inventorySpace++;
                                 }
 
                                 else System.out.println("Sorry, you don't have sufficient funds");
@@ -122,6 +135,7 @@ public class Main {
                                 if (Player.balance >= Shop.getApplePrice()) {
                                     Player.balance -= Shop.getApplePrice();
                                     Player.inventory.add("Apple");
+                                    player.inventorySpace++;
                                 }
 
                                 else System.out.println("Sorry, you don't have sufficient funds");
@@ -132,6 +146,7 @@ public class Main {
                                 if (Player.balance >= Shop.getCherryPrice()) {
                                     Player.balance -= Shop.getCherryPrice();
                                     Player.inventory.add("Cherry");
+                                    player.inventorySpace++;
                                 }
 
                                 else System.out.println("Sorry, you don't have sufficient funds");
@@ -142,6 +157,7 @@ public class Main {
                                 if (Player.balance >= Shop.getWalnutBreadPrice()) {
                                     Player.balance -= Shop.getWalnutBreadPrice();
                                     Player.inventory.add("Walnut Bread");
+                                    player.inventorySpace++;
                                 }
 
                                 else System.out.println("Sorry, you don't have sufficient funds");

@@ -1,11 +1,17 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Shop {
 
     //Food Shop
     List<String> cooks = new ArrayList<>();
     String[] foods = {"Rolls", "Breads", "Apple", "Cherry", "Walnut Bread"};
+    Scanner scan = new Scanner(System.in);
+
+    //Variables
+    String userInput;   //For letters
+    int input;  //For numbers
 
     //Fields
     final private static double breadPrice = 2.87;
@@ -43,6 +49,20 @@ public class Shop {
     public void showCooks() {
         for (String cook : cooks) {
             System.out.print(cook + " ");
+        }
+    }
+
+    public void removeItem() {
+        try {
+            System.out.print("> ");
+            userInput = scan.next();
+            for (String items : Player.inventory) {
+                if (items.equalsIgnoreCase(userInput)) {
+                    Player.inventory.remove(userInput);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("You don't have anything in your inventory");
         }
     }
 
