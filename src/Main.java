@@ -31,12 +31,63 @@ public class Main {
                 //First menu in shop
                 menuShop();
 
+                //Getting instance and creating object
+                Shop shop = new Shop();
+
                 //User input and Switch
                 System.out.print("> ");
                 userInput = scan.next();
 
                 switch (userInput) {
                     case "1" -> {     //Foods
+                        while (true) {
+                            //Preheat Stove
+                            System.out.println("---------------------------------------------------------------");
+                            System.out.println("Do you want to preheat stove? 'Y' for yes 'N' for no");
+
+                            //User input
+                            System.out.print("> ");
+                            userInput = scan.next();
+
+                            //If user enters something besides 'Y' or 'N'
+                            while (!userInput.equalsIgnoreCase("Y") && !userInput.equalsIgnoreCase("N") ) {
+                                System.out.println("Invalid command! Please try again");
+                                System.out.println("Do you want to preheat stove? 'Y' for yes, 'N' for no");
+                                System.out.print("> ");
+                                userInput = scan.next();
+                            }
+
+                            //Flow control
+                            if (userInput.equalsIgnoreCase("Y")) shop.preheatStove();    //Heating stove
+                            else break;
+                        }
+
+                        while (true) {
+                            //Displaying foods
+                            System.out.println("---------------------------------------------------------------");
+                            System.out.println("Do you want to display foods in shop? 'Y' for yes, 'N' for no");
+
+                            //User Input
+                            System.out.print("> ");
+                            userInput = scan.next();
+
+                            //If user enters something besides 'Y' or 'N'
+                            while (!userInput.equalsIgnoreCase("Y") && !userInput.equalsIgnoreCase("N") ) {
+                                System.out.println("Invalid command! Please try again");
+                                System.out.println("Do you want to display foods in shop? 'Y' for yes, 'N' for no");
+                                System.out.print("> ");
+                                userInput = scan.next();
+                            }
+
+                            //Flow Control
+                            if (userInput.equalsIgnoreCase("Y")) {
+                                System.out.println("---------------------------------------------------------------");
+                                shop.showCooks();2
+                                System.out.println("\n");
+                            }
+                            else break;
+                        }
+
                         //Menu for Foods
                         menuShopFood();
 
@@ -145,6 +196,7 @@ public class Main {
 
     public static void menuShopFood() {
         System.out.println("---------------------------------------------------------------");
+        System.out.println("\t\t\t\t\t\tWelcome to Food Shop");
         System.out.println("[1] Bread -- 2.87 gold");
         System.out.println("[2] Rolls -- 1.24 gold");
         System.out.println("[3] Apple -- 0.82 gold");
