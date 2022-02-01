@@ -6,7 +6,8 @@ public class Main {
         Scanner scan = new Scanner(System.in);
 
         //Variables
-        String userInput;
+        String userInput;   //For letters
+        int input;  //For numbers
 
         //Methods
         menu();
@@ -27,7 +28,19 @@ public class Main {
             }
 
             case "3" -> {
-                //Shop
+                //First menu in shop
+                menuShop();
+
+                //User input and Switch
+                System.out.print("> ");
+                userInput = scan.next();
+
+                switch (userInput) {
+                    case "1" -> {     //Foods
+                        menuShopFood();
+
+                    }
+                }
             }
 
             case "4" -> {
@@ -49,6 +62,25 @@ public class Main {
         System.out.println("[3] Shop");
         System.out.println("[4] Credits\n");
         System.out.println("[X] Exit");
+        System.out.println("---------------------------------------------------------------");
+    }
+
+    public static void menuShop() {
+        System.out.println("---------------------------------------------------------------");
+        System.out.println("\t\t\t\t\t\tWelcome to Shop");
+        System.out.println("[1] Foods");
+        System.out.println("[2] Armor");
+        System.out.println("[3] Potions");
+        System.out.println("[X] Exit");
+    }
+
+    public static void menuShopFood() {
+        System.out.println("---------------------------------------------------------------");
+        System.out.println("[1] Bread -- 2.87 gold");
+        System.out.println("[2] Rolls -- 1.24 gold");
+        System.out.println("[3] Apple -- 0.82 gold");
+        System.out.println("[4] Cherry -- 0.24 gold");
+        System.out.println("[5] Walnut Bread -- 5.78 gold");
         System.out.println("---------------------------------------------------------------");
     }
 }
