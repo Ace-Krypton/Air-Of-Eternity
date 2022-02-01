@@ -37,9 +37,78 @@ public class Main {
 
                 switch (userInput) {
                     case "1" -> {     //Foods
+                        //Menu for Foods
                         menuShopFood();
 
+                        //User input
+                        System.out.print("> ");
+                        input = scan.nextInt();
+
+                        //Switch
+                        switch (input) {
+                            case 1 -> {
+                                //Bread
+                                if (Player.balance >= Shop.getBreadPrice()) {
+                                    Player.balance -= Shop.getBreadPrice();
+                                    Player.inventory.add("Bread");
+                                }
+
+                                else System.out.println("Sorry, you don't have sufficient funds");
+                            }
+
+                            case 2 -> {
+                                //Roll
+                                if (Player.balance >= Shop.getRollPrice()) {
+                                    Player.balance -= Shop.getRollPrice();
+                                    Player.inventory.add("Roll");
+                                }
+
+                                else System.out.println("Sorry, you don't have sufficient funds");
+                            }
+
+                            case 3 -> {
+                                //Apple
+                                if (Player.balance >= Shop.getApplePrice()) {
+                                    Player.balance -= Shop.getApplePrice();
+                                    Player.inventory.add("Apple");
+                                }
+
+                                else System.out.println("Sorry, you don't have sufficient funds");
+                            }
+
+                            case 4 -> {
+                                //Cherry
+                                if (Player.balance >= Shop.getCherryPrice()) {
+                                    Player.balance -= Shop.getCherryPrice();
+                                    Player.inventory.add("Cherry");
+                                }
+
+                                else System.out.println("Sorry, you don't have sufficient funds");
+                            }
+
+                            case 5 -> {
+                                //Walnut Bread
+                                if (Player.balance >= Shop.getWalnutBreadPrice()) {
+                                    Player.balance -= Shop.getWalnutBreadPrice();
+                                    Player.inventory.add("Walnut Bread");
+                                }
+
+                                else System.out.println("Sorry, you don't have sufficient funds");
+                            }
+
+                            default -> System.out.println("Invalid command");
+                        }
                     }
+
+                    case "2" -> {   //Armor
+
+                    }
+
+                    case "3" -> {    //Potions
+
+                    }
+
+                    default -> System.out.println("Invalid command");
                 }
             }
 
