@@ -13,4 +13,12 @@ public class Player {
     String name;
     int inventorySpace;
     int defaultBackpack = 10;
+
+    //Methods
+    public void showInventory() {   //Displaying items in inventory
+        for (String inv : inventory) {
+            System.out.print(inv + " ");
+        }
+    }
+
 }

@@ -5,34 +5,39 @@ public class Main {
         //System Objects
         Scanner scan = new Scanner(System.in);
 
-        //Variables
-        String userInput;   //For letters
-        int input;  //For numbers
+        //Boolean
+        boolean mainWhile = true;
 
-        //Methods
-        menu();
+        //Loop
+        MAINWHILE:
+        while (mainWhile) {
 
-        //User Input
-        System.out.print("-> ");
-        userInput = scan.next();
+            //Getting instance and creating object
+            CreateCharacter create = new CreateCharacter();
+            Shop shop = new Shop();
+            Player player = new Player();
 
-        //Option selecting
-        switch (userInput.toUpperCase()) {
-            case "1" -> {
-                CreateCharacter create = new CreateCharacter();
-                create.menuForCharacterCreating();
-            }
+            //Variables
+            String userInput;   //For letters
+            int input;  //For numbers
 
-            case "2" -> {
-                //Settings
-            }
+            //Methods
+            menu();
 
-            case "3" -> {
-                //Getting instance and creating object
-                Shop shop = new Shop();
-                Player player = new Player();
+            //User Input
+            System.out.print("-> ");
+            userInput = scan.next();
 
-                //I have to write while loop here
+            //Option selecting
+            switch (userInput.toUpperCase()) {
+                case "1" -> //Play
+                        create.menuForCharacterCreating();
+
+                case "2" -> {   //Settings
+
+                }
+
+                case "3" -> {   //Shop
 
                     //First menu in shop
                     if (player.inventorySpace > player.defaultBackpack) {
@@ -63,10 +68,9 @@ public class Main {
 
                         //Flow Control
                         if (userInput.equalsIgnoreCase("backpack")) {
-                            boolean backPackLoop = true;
 
                             //Loop
-                            while (backPackLoop) {
+                            while (true) {
 
                                 //BackPack Menu
                                 menuForBackPacks();
@@ -105,8 +109,9 @@ public class Main {
                                         else System.out.println("Sorry, you don't have sufficient funds");
                                     }
 
-                                    case "X" -> //Return
-                                            backPackLoop = false;
+                                    case "X" -> { //Return
+                                        continue MAINWHILE;
+                                    }
 
                                     default -> System.out.println("Invalid command");
                                 }
@@ -114,35 +119,35 @@ public class Main {
                         }
                         else shop.removeItem();
                     }
-                menuShop();
+                    menuShop();
 
-                //User input and Switch
-                System.out.print("> ");
-                userInput = scan.next();
+                    //User input and Switch
+                    System.out.print("> ");
+                    userInput = scan.next();
 
-                switch (userInput) {
-                    case "1" -> {     //Foods
-                        while (true) {
-                            //Preheat Stove
-                            System.out.println("---------------------------------------------------------------");
-                            System.out.println("Do you want to preheat stove? 'Y' for yes 'N' for no");
+                    switch (userInput) {
+                        case "1" -> {     //Foods
+                            while (true) {
+                                //Preheat Stove
+                                System.out.println("---------------------------------------------------------------");
+                                System.out.println("Do you want to preheat stove? 'Y' for yes 'N' for no");
 
-                            //User input
-                            System.out.print("> ");
-                            userInput = scan.next();
-
-                            //If user enters something besides 'Y' or 'N'
-                            while (!userInput.equalsIgnoreCase("Y") && !userInput.equalsIgnoreCase("N") ) {
-                                System.out.println("Invalid command! Please try again");
-                                System.out.println("Do you want to preheat stove? 'Y' for yes, 'N' for no");
+                                //User input
                                 System.out.print("> ");
                                 userInput = scan.next();
-                            }
 
-                            //Flow control
-                            if (userInput.equalsIgnoreCase("Y")) shop.preheatStove();    //Heating stove
-                            else break;
-                        }
+                                //If user enters something besides 'Y' or 'N'
+                                while (!userInput.equalsIgnoreCase("Y") && !userInput.equalsIgnoreCase("N") ) {
+                                    System.out.println("Invalid command! Please try again");
+                                    System.out.println("Do you want to preheat stove? 'Y' for yes, 'N' for no");
+                                    System.out.print("> ");
+                                    userInput = scan.next();
+                                }
+
+                                //Flow control
+                                if (userInput.equalsIgnoreCase("Y")) shop.preheatStove();    //Heating stove
+                                else break;
+                            }
 
                             //Displaying foods
                             System.out.println("---------------------------------------------------------------");
@@ -167,111 +172,111 @@ public class Main {
                                 System.out.println("\n");
                             }
 
+                            //Loop
+                            while (true) {
+                                //Menu for Foods
+                                menuShopFood();
 
-                        boolean foodLoop = true;
-                        //Loop
-                        while (foodLoop) {
-                            //Menu for Foods
-                            menuShopFood();
+                                //User input
+                                System.out.print("> ");
+                                userInput = scan.next();
 
-                            //User input
-                            System.out.print("> ");
-                            userInput = scan.next();
+                                //Switch
+                                switch (userInput) {
+                                    case "1" -> {
+                                        //Bread
+                                        if (Player.balance >= Shop.getBreadPrice()) {
+                                            Player.balance -= Shop.getBreadPrice();
+                                            Player.inventory.add("Bread");
+                                            player.inventorySpace++;
+                                            System.out.println("You have successfully bought \"Bread\"");
 
-                            //Switch
-                            switch (userInput) {
-                                case "1" -> {
-                                    //Bread
-                                    if (Player.balance >= Shop.getBreadPrice()) {
-                                        Player.balance -= Shop.getBreadPrice();
-                                        Player.inventory.add("Bread");
-                                        player.inventorySpace++;
-                                        System.out.println("You have successfully bought \"Bread\"");
-
-                                    }
-                                    else System.out.println("Sorry, you don't have sufficient funds");
-                                }
-
-                                case "2" -> {
-                                    //Roll
-                                    if (Player.balance >= Shop.getRollPrice()) {
-                                        Player.balance -= Shop.getRollPrice();
-                                        Player.inventory.add("Roll");
-                                        player.inventorySpace++;
-                                        System.out.println("You have successfully bought \"Roll\"");
+                                        }
+                                        else System.out.println("Sorry, you don't have sufficient funds");
                                     }
 
-                                    else System.out.println("Sorry, you don't have sufficient funds");
-                                }
+                                    case "2" -> {
+                                        //Roll
+                                        if (Player.balance >= Shop.getRollPrice()) {
+                                            Player.balance -= Shop.getRollPrice();
+                                            Player.inventory.add("Roll");
+                                            player.inventorySpace++;
+                                            System.out.println("You have successfully bought \"Roll\"");
+                                        }
 
-                                case "3" -> {
-                                    //Apple
-                                    if (Player.balance >= Shop.getApplePrice()) {
-                                        Player.balance -= Shop.getApplePrice();
-                                        Player.inventory.add("Apple");
-                                        player.inventorySpace++;
-                                        System.out.println("You have successfully bought \"Apple\"");
+                                        else System.out.println("Sorry, you don't have sufficient funds");
                                     }
 
-                                    else System.out.println("Sorry, you don't have sufficient funds");
-                                }
+                                    case "3" -> {
+                                        //Apple
+                                        if (Player.balance >= Shop.getApplePrice()) {
+                                            Player.balance -= Shop.getApplePrice();
+                                            Player.inventory.add("Apple");
+                                            player.inventorySpace++;
+                                            System.out.println("You have successfully bought \"Apple\"");
+                                        }
 
-                                case "4" -> {
-                                    //Cherry
-                                    if (Player.balance >= Shop.getCherryPrice()) {
-                                        Player.balance -= Shop.getCherryPrice();
-                                        Player.inventory.add("Cherry");
-                                        player.inventorySpace++;
-                                        System.out.println("You have successfully bought \"Cherry\"");
+                                        else System.out.println("Sorry, you don't have sufficient funds");
                                     }
 
-                                    else System.out.println("Sorry, you don't have sufficient funds");
-                                }
+                                    case "4" -> {
+                                        //Cherry
+                                        if (Player.balance >= Shop.getCherryPrice()) {
+                                            Player.balance -= Shop.getCherryPrice();
+                                            Player.inventory.add("Cherry");
+                                            player.inventorySpace++;
+                                            System.out.println("You have successfully bought \"Cherry\"");
+                                        }
 
-                                case "5" -> {
-                                    //Walnut Bread
-                                    if (Player.balance >= Shop.getWalnutBreadPrice()) {
-                                        Player.balance -= Shop.getWalnutBreadPrice();
-                                        Player.inventory.add("Walnut Bread");
-                                        player.inventorySpace++;
-                                        System.out.println("You have successfully bought \"Walnut Bread\"");
+                                        else System.out.println("Sorry, you don't have sufficient funds");
                                     }
 
-                                    else System.out.println("Sorry, you don't have sufficient funds");
+                                    case "5" -> {
+                                        //Walnut Bread
+                                        if (Player.balance >= Shop.getWalnutBreadPrice()) {
+                                            Player.balance -= Shop.getWalnutBreadPrice();
+                                            Player.inventory.add("Walnut Bread");
+                                            player.inventorySpace++;
+                                            System.out.println("You have successfully bought \"Walnut Bread\"");
+                                        }
+
+                                        else System.out.println("Sorry, you don't have sufficient funds");
+                                    }
+
+                                    case "X" -> {
+                                        continue MAINWHILE;
+                                    }
+
+                                    default -> System.out.println("Invalid command");
                                 }
-
-                                case "X" -> foodLoop = false;
-
-                                default -> System.out.println("Invalid command");
                             }
                         }
+
+                        case "2" -> {   //Armor
+
+                        }
+
+                        case "3" -> {    //Potions
+
+                        }
+
+                        case "4" -> {   //BackPacks
+
+                        }
+
+                        default -> System.out.println("Invalid command");
                     }
-
-                    case "2" -> {   //Armor
-
-                    }
-
-                    case "3" -> {    //Potions
-
-                    }
-
-                    case "4" -> {   //BackPacks
-
-                    }
-
-                    default -> System.out.println("Invalid command");
                 }
-            }
 
-            case "4" -> {
-                //Credits
-            }
+                case "4" -> {   //Credits
 
-            case "X" -> {
-                //Exit
-            }
+                }
 
-            default -> System.out.println("Invalid command");
+                case "X" -> //Exit
+                        mainWhile = false;
+
+                default -> System.out.println("Invalid command");
+            }
         }
     }
 
@@ -280,6 +285,7 @@ public class Main {
         System.out.println("[1] Play");
         System.out.println("[2] Settings");
         System.out.println("[3] Shop");
+        System.out.println("[4] Show Inventory");
         System.out.println("[4] Credits\n");
         System.out.println("[X] Exit");
         System.out.println("---------------------------------------------------------------");
