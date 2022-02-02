@@ -11,6 +11,6 @@ public class Player {
     //Player stats (Balance, Name, Inventory Space, etc)
     public static double balance = 90;
     String name;
-    int inventorySpace = 11;
+    int inventorySpace;
     int defaultBackpack = 10;
 }

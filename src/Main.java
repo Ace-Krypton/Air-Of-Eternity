@@ -40,7 +40,7 @@ public class Main {
                         System.out.println("""
                             You don't have empty space in your inventory
                             You either buy new backpack or remove your items
-                            Type "remove" and "item name" to remove your item
+                            Type "remove" to remove your item
                             If you don't want to remove item from your inventory go and buy fucking backpack you idiot
                             Type "backpack" for buying backpack\s""");
 
@@ -48,11 +48,26 @@ public class Main {
                         System.out.print("> ");
                         userInput = scan.next();
 
+                        //Loop
+                        while (!userInput.equalsIgnoreCase("remove") && !userInput.equalsIgnoreCase("backpack")) {
+                            System.out.println("Invalid command! Please try again");
+                            System.out.println("""
+                            You don't have empty space in your inventory
+                            You either buy new backpack or remove your items
+                            Type "remove" to remove your item
+                            If you don't want to remove item from your inventory go and buy fucking backpack you idiot
+                            Type "backpack" for buying backpack\s""");
+                            System.out.print("> ");
+                            userInput = scan.next();
+                        }
+
                         //Flow Control
                         if (userInput.equalsIgnoreCase("backpack")) {
                             boolean backPackLoop = true;
+
                             //Loop
                             while (backPackLoop) {
+
                                 //BackPack Menu
                                 menuForBackPacks();
 
@@ -65,10 +80,10 @@ public class Main {
                                         if (Player.balance >= Shop.getLvl1BackPackPrice()) {
                                             Player.balance -= Shop.getLvl1BackPackPrice();
                                             player.defaultBackpack += 5;
+                                            System.out.println("You have successfully bought \"Level 1 BackPack\"");
                                         }
                                         else {
                                             System.out.println("Sorry, you don't have sufficient funds");
-
                                         }
                                     }
 
@@ -76,6 +91,7 @@ public class Main {
                                         if (Player.balance >= Shop.getLvl2BackPackPrice()) {
                                             Player.balance -= Shop.getLvl2BackPackPrice();
                                             player.defaultBackpack += 10;
+                                            System.out.println("You have successfully bought \"Level 2 BackPack\"");
                                         }
                                         else System.out.println("Sorry, you don't have sufficient funds");
                                     }
@@ -84,6 +100,7 @@ public class Main {
                                         if (Player.balance >= Shop.getLvl3BackPackPrice()) {
                                             Player.balance -= Shop.getLvl3BackPackPrice();
                                             player.defaultBackpack += 15;
+                                            System.out.println("You have successfully bought \"Level 3 BackPack\"");
                                         }
                                         else System.out.println("Sorry, you don't have sufficient funds");
                                     }
@@ -95,7 +112,7 @@ public class Main {
                                 }
                             }
                         }
-                        shop.removeItem();
+                        else shop.removeItem();
                     }
                 menuShop();
 
@@ -127,7 +144,6 @@ public class Main {
                             else break;
                         }
 
-                        while (true) {
                             //Displaying foods
                             System.out.println("---------------------------------------------------------------");
                             System.out.println("Do you want to display foods in shop? 'Y' for yes, 'N' for no");
@@ -150,74 +166,84 @@ public class Main {
                                 shop.showCooks();
                                 System.out.println("\n");
                             }
-                            else break;
-                        }
 
-                        //Menu for Foods
-                        menuShopFood();
 
-                        //User input
-                        System.out.print("> ");
-                        input = scan.nextInt();
+                        boolean foodLoop = true;
+                        //Loop
+                        while (foodLoop) {
+                            //Menu for Foods
+                            menuShopFood();
 
-                        //Switch
-                        switch (input) {
-                            case 1 -> {
-                                //Bread
-                                if (Player.balance >= Shop.getBreadPrice()) {
-                                    Player.balance -= Shop.getBreadPrice();
-                                    Player.inventory.add("Bread");
-                                    player.inventorySpace++;
+                            //User input
+                            System.out.print("> ");
+                            userInput = scan.next();
+
+                            //Switch
+                            switch (userInput) {
+                                case "1" -> {
+                                    //Bread
+                                    if (Player.balance >= Shop.getBreadPrice()) {
+                                        Player.balance -= Shop.getBreadPrice();
+                                        Player.inventory.add("Bread");
+                                        player.inventorySpace++;
+                                        System.out.println("You have successfully bought \"Bread\"");
+
+                                    }
+                                    else System.out.println("Sorry, you don't have sufficient funds");
                                 }
 
-                                else System.out.println("Sorry, you don't have sufficient funds");
-                            }
+                                case "2" -> {
+                                    //Roll
+                                    if (Player.balance >= Shop.getRollPrice()) {
+                                        Player.balance -= Shop.getRollPrice();
+                                        Player.inventory.add("Roll");
+                                        player.inventorySpace++;
+                                        System.out.println("You have successfully bought \"Roll\"");
+                                    }
 
-                            case 2 -> {
-                                //Roll
-                                if (Player.balance >= Shop.getRollPrice()) {
-                                    Player.balance -= Shop.getRollPrice();
-                                    Player.inventory.add("Roll");
-                                    player.inventorySpace++;
+                                    else System.out.println("Sorry, you don't have sufficient funds");
                                 }
 
-                                else System.out.println("Sorry, you don't have sufficient funds");
-                            }
+                                case "3" -> {
+                                    //Apple
+                                    if (Player.balance >= Shop.getApplePrice()) {
+                                        Player.balance -= Shop.getApplePrice();
+                                        Player.inventory.add("Apple");
+                                        player.inventorySpace++;
+                                        System.out.println("You have successfully bought \"Apple\"");
+                                    }
 
-                            case 3 -> {
-                                //Apple
-                                if (Player.balance >= Shop.getApplePrice()) {
-                                    Player.balance -= Shop.getApplePrice();
-                                    Player.inventory.add("Apple");
-                                    player.inventorySpace++;
+                                    else System.out.println("Sorry, you don't have sufficient funds");
                                 }
 
-                                else System.out.println("Sorry, you don't have sufficient funds");
-                            }
+                                case "4" -> {
+                                    //Cherry
+                                    if (Player.balance >= Shop.getCherryPrice()) {
+                                        Player.balance -= Shop.getCherryPrice();
+                                        Player.inventory.add("Cherry");
+                                        player.inventorySpace++;
+                                        System.out.println("You have successfully bought \"Cherry\"");
+                                    }
 
-                            case 4 -> {
-                                //Cherry
-                                if (Player.balance >= Shop.getCherryPrice()) {
-                                    Player.balance -= Shop.getCherryPrice();
-                                    Player.inventory.add("Cherry");
-                                    player.inventorySpace++;
+                                    else System.out.println("Sorry, you don't have sufficient funds");
                                 }
 
-                                else System.out.println("Sorry, you don't have sufficient funds");
-                            }
+                                case "5" -> {
+                                    //Walnut Bread
+                                    if (Player.balance >= Shop.getWalnutBreadPrice()) {
+                                        Player.balance -= Shop.getWalnutBreadPrice();
+                                        Player.inventory.add("Walnut Bread");
+                                        player.inventorySpace++;
+                                        System.out.println("You have successfully bought \"Walnut Bread\"");
+                                    }
 
-                            case 5 -> {
-                                //Walnut Bread
-                                if (Player.balance >= Shop.getWalnutBreadPrice()) {
-                                    Player.balance -= Shop.getWalnutBreadPrice();
-                                    Player.inventory.add("Walnut Bread");
-                                    player.inventorySpace++;
+                                    else System.out.println("Sorry, you don't have sufficient funds");
                                 }
 
-                                else System.out.println("Sorry, you don't have sufficient funds");
-                            }
+                                case "X" -> foodLoop = false;
 
-                            default -> System.out.println("Invalid command");
+                                default -> System.out.println("Invalid command");
+                            }
                         }
                     }
 
@@ -277,6 +303,7 @@ public class Main {
         System.out.println("[3] Apple -- 0.82 gold");
         System.out.println("[4] Cherry -- 0.24 gold");
         System.out.println("[5] Walnut Bread -- 5.78 gold");
+        System.out.println("[X] Exit");
         System.out.println("---------------------------------------------------------------");
     }
 
