@@ -9,7 +9,7 @@ public class Player {
     Scanner scan = new Scanner(System.in);
 
     //Player stats (Balance, Name, Inventory Space, etc)
-    public static double balance;
+    public static double balance = 90;
     String name;
     int inventorySpace = 11;
     int defaultBackpack = 10;

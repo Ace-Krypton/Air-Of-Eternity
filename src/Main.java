@@ -28,34 +28,75 @@ public class Main {
             }
 
             case "3" -> {
-
                 //Getting instance and creating object
                 Shop shop = new Shop();
                 Player player = new Player();
 
                 //I have to write while loop here
 
-                //First menu in shop
-                if (player.inventorySpace > player.defaultBackpack) {
-                    System.out.println("---------------------------------------------------------------");
-                    System.out.println("""
+                    //First menu in shop
+                    if (player.inventorySpace > player.defaultBackpack) {
+                        System.out.println("---------------------------------------------------------------");
+                        System.out.println("""
                             You don't have empty space in your inventory
                             You either buy new backpack or remove your items
                             Type "remove" and "item name" to remove your item
                             If you don't want to remove item from your inventory go and buy fucking backpack you idiot
                             Type "backpack" for buying backpack\s""");
 
-                    //User Input
-                    System.out.print("> ");
-                    userInput = scan.next();
+                        //User Input
+                        System.out.print("> ");
+                        userInput = scan.next();
 
-                    //Flow Control
-                    if (userInput.equalsIgnoreCase("backpack")) {
+                        //Flow Control
+                        if (userInput.equalsIgnoreCase("backpack")) {
+                            boolean backPackLoop = true;
+                            //Loop
+                            while (backPackLoop) {
+                                //BackPack Menu
+                                menuForBackPacks();
 
+                                //User Input
+                                System.out.print("> ");
+                                userInput = scan.next();
+
+                                switch (userInput.toUpperCase()) {
+                                    case "1" -> {   //Level 1 BackPack
+                                        if (Player.balance >= Shop.getLvl1BackPackPrice()) {
+                                            Player.balance -= Shop.getLvl1BackPackPrice();
+                                            player.defaultBackpack += 5;
+                                        }
+                                        else {
+                                            System.out.println("Sorry, you don't have sufficient funds");
+
+                                        }
+                                    }
+
+                                    case "2" -> {   //Level 2 BackPack
+                                        if (Player.balance >= Shop.getLvl2BackPackPrice()) {
+                                            Player.balance -= Shop.getLvl2BackPackPrice();
+                                            player.defaultBackpack += 10;
+                                        }
+                                        else System.out.println("Sorry, you don't have sufficient funds");
+                                    }
+
+                                    case "3" -> {   //Level 3 BackPack
+                                        if (Player.balance >= Shop.getLvl3BackPackPrice()) {
+                                            Player.balance -= Shop.getLvl3BackPackPrice();
+                                            player.defaultBackpack += 15;
+                                        }
+                                        else System.out.println("Sorry, you don't have sufficient funds");
+                                    }
+
+                                    case "X" -> //Return
+                                            backPackLoop = false;
+
+                                    default -> System.out.println("Invalid command");
+                                }
+                            }
+                        }
+                        shop.removeItem();
                     }
-
-                    shop.removeItem();
-                }
                 menuShop();
 
                 //User input and Switch
@@ -188,6 +229,10 @@ public class Main {
 
                     }
 
+                    case "4" -> {   //BackPacks
+
+                    }
+
                     default -> System.out.println("Invalid command");
                 }
             }
@@ -220,6 +265,7 @@ public class Main {
         System.out.println("[1] Foods");
         System.out.println("[2] Armor");
         System.out.println("[3] Potions");
+        System.out.println("[4] BackPacks");
         System.out.println("[X] Exit");
     }
 
@@ -231,6 +277,16 @@ public class Main {
         System.out.println("[3] Apple -- 0.82 gold");
         System.out.println("[4] Cherry -- 0.24 gold");
         System.out.println("[5] Walnut Bread -- 5.78 gold");
+        System.out.println("---------------------------------------------------------------");
+    }
+
+    public static void menuForBackPacks() {
+        System.out.println("---------------------------------------------------------------");
+        System.out.println("\t\t\t\t\tWelcome to BackPack Shop");
+        System.out.println("[1] Level 1 (BackPack) -- 50 gold");
+        System.out.println("[2] Level 2 (BackPack) -- 80 gold");
+        System.out.println("[3] Level 3 (BackPack) -- 130 gold");
+        System.out.println("[X] Exit");
         System.out.println("---------------------------------------------------------------");
     }
 }
