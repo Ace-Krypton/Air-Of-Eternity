@@ -22,7 +22,7 @@ public class Main {
             int input;  //For numbers
 
             //Methods
-            menu();
+            menuForStartScreen();
 
             //User Input
             System.out.print("-> ");
@@ -30,8 +30,56 @@ public class Main {
 
             //Option selecting
             switch (userInput.toUpperCase()) {
-                case "1" -> //Play
+                case "1" -> {   //Play
+                    //Boolean
+
+                    while (true) {
+                        //Character Creating Menu
                         create.menuForCharacterCreating();
+
+                        //User Input
+                        System.out.print("> ");
+                        userInput = scan.next();
+
+                        //Flow Control
+                        switch (userInput.toUpperCase()) {
+                            case "1" -> {   //Barbarian
+
+                            }
+
+                            case "2" -> {   //Paladin
+
+                            }
+
+                            case "3" -> {   //Assassin
+
+                            }
+
+                            case "4" -> {   //Wizard
+
+                            }
+
+                            case "5" -> {   //Druid
+
+                            }
+
+                            case "6" -> {   //Ranger
+
+                            }
+
+                            case "Q" -> {   //Swap
+
+                            }
+
+                            case "X" -> {   //Exit
+                                continue MAINWHILE;
+                            }
+
+                            default -> System.out.println("Invalid command, Please try again");
+                        }
+                    }
+
+                }
 
                 case "2" -> {   //Settings
 
@@ -73,7 +121,7 @@ public class Main {
                             while (true) {
 
                                 //BackPack Menu
-                                menuForBackPacks();
+                                shop.menuForBackPacks();
 
                                 //User Input
                                 System.out.print("> ");
@@ -119,7 +167,8 @@ public class Main {
                         }
                         else shop.removeItem();
                     }
-                    menuShop();
+
+                    shop.menuShop();
 
                     //User input and Switch
                     System.out.print("> ");
@@ -175,7 +224,7 @@ public class Main {
                             //Loop
                             while (true) {
                                 //Menu for Foods
-                                menuShopFood();
+                                shop.menuShopFood();
 
                                 //User input
                                 System.out.print("> ");
@@ -268,9 +317,8 @@ public class Main {
                     }
                 }
 
-                case "4" -> {   //Credits
-
-                }
+                case "4" -> //Credits
+                        System.out.println("Developer Ramiz aka \"Krypton\"");
 
                 case "X" -> //Exit
                         mainWhile = false;
@@ -280,45 +328,12 @@ public class Main {
         }
     }
 
-    public static void menu() {    //Menu for start screen
+    public static void menuForStartScreen() {    //Menu for start screen
         System.out.println("---------------------------------------------------------------");
-        System.out.println("[1] Play");
-        System.out.println("[2] Settings");
+        System.out.println("[1] Play (Under Development)");
+        System.out.println("[2] Settings (Under Development)");
         System.out.println("[3] Shop");
-        System.out.println("[4] Show Inventory");
         System.out.println("[4] Credits\n");
-        System.out.println("[X] Exit");
-        System.out.println("---------------------------------------------------------------");
-    }
-
-    public static void menuShop() {
-        System.out.println("---------------------------------------------------------------");
-        System.out.println("\t\t\t\t\t\tWelcome to Shop");
-        System.out.println("[1] Foods");
-        System.out.println("[2] Armor");
-        System.out.println("[3] Potions");
-        System.out.println("[4] BackPacks");
-        System.out.println("[X] Exit");
-    }
-
-    public static void menuShopFood() {
-        System.out.println("---------------------------------------------------------------");
-        System.out.println("\t\t\t\t\tWelcome to Food Shop");
-        System.out.println("[1] Bread -- 2.87 gold");
-        System.out.println("[2] Rolls -- 1.24 gold");
-        System.out.println("[3] Apple -- 0.82 gold");
-        System.out.println("[4] Cherry -- 0.24 gold");
-        System.out.println("[5] Walnut Bread -- 5.78 gold");
-        System.out.println("[X] Exit");
-        System.out.println("---------------------------------------------------------------");
-    }
-
-    public static void menuForBackPacks() {
-        System.out.println("---------------------------------------------------------------");
-        System.out.println("\t\t\t\t\tWelcome to BackPack Shop");
-        System.out.println("[1] Level 1 (BackPack) -- 50 gold");
-        System.out.println("[2] Level 2 (BackPack) -- 80 gold");
-        System.out.println("[3] Level 3 (BackPack) -- 130 gold");
         System.out.println("[X] Exit");
         System.out.println("---------------------------------------------------------------");
     }

@@ -4,6 +4,17 @@ import java.util.Scanner;
 
 public class Shop {
 
+    //Menu Shop
+    public void menuShop() {
+        System.out.println("---------------------------------------------------------------");
+        System.out.println("\t\t\t\t\t\tWelcome to Shop");
+        System.out.println("[1] Foods");
+        System.out.println("[2] Armor (Under Development)");
+        System.out.println("[3] Potions (Under Development)");
+        System.out.println("[4] BackPacks");
+        System.out.println("[X] Exit");
+    }
+
     //Food Shop
     List<String> cooks = new ArrayList<>();
     String[] foods = {"Rolls", "Breads", "Apple", "Cherry", "Walnut Bread"};
@@ -65,6 +76,18 @@ public class Shop {
         } catch (Exception e) {
             System.out.println("You don't have anything in your inventory");
         }
+    }
+
+    public void menuShopFood() {
+        System.out.println("---------------------------------------------------------------");
+        System.out.println("\t\t\t\t\tWelcome to Food Shop");
+        System.out.println("[1] Bread -- 2.87 gold");
+        System.out.println("[2] Rolls -- 1.24 gold");
+        System.out.println("[3] Apple -- 0.82 gold");
+        System.out.println("[4] Cherry -- 0.24 gold");
+        System.out.println("[5] Walnut Bread -- 5.78 gold");
+        System.out.println("[X] Exit");
+        System.out.println("---------------------------------------------------------------");
     }
 
     //Armor Shop
@@ -201,5 +224,15 @@ public class Shop {
 
     public static double getLvl3BackPackPrice() {
         return lvl3BackPackPrice;
+    }
+
+    public void menuForBackPacks() {
+        System.out.println("---------------------------------------------------------------");
+        System.out.println("\t\t\t\t\tWelcome to BackPack Shop");
+        System.out.println("[1] Level 1 (BackPack) -- 50 gold");
+        System.out.println("[2] Level 2 (BackPack) -- 80 gold");
+        System.out.println("[3] Level 3 (BackPack) -- 130 gold");
+        System.out.println("[X] Exit");
+        System.out.println("---------------------------------------------------------------");
     }
 }

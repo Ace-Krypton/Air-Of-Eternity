@@ -11,8 +11,9 @@ public class CreateCharacter {
         System.out.println("[4] New Wizard (Under Development)");
         System.out.println("[5] New Druid (Under Development)");
         System.out.println("[6] New Ranger (Under Development)");
-        System.out.println("[Q] Swap                                               [A] Back  ");
+        System.out.println("[Q] Swap                                               [X] Back  ");
         System.out.println("+---------------------------------------------------------------+");
-        System.out.print("> ");
     }
+
+
 }
