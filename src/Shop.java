@@ -54,6 +54,7 @@ public class Shop {
 
     public void removeItem() {
         try {
+            System.out.println("\nType the name of the item that you wanna remove");
             System.out.print("> ");
             userInput = scan.next();
             for (String items : Player.inventory) {
@@ -179,4 +180,26 @@ public class Shop {
         return holyVeilPrice;
     }
 
+
+    //BackPacks
+    List<String> backPacksAsList = new ArrayList<>(); //BackPacks as List (Just In Case)
+    String[] backPacksAsArray = {"LVL 1 BackPack", "LVL 2 BackPack", "LVL 3 BackPack"}; //BackPacks as Array
+
+    //BackPack Prices
+    final private static double lvl1BackPackPrice = 50;
+    final private static double lvl2BackPackPrice = 80;
+    final private static double lvl3BackPackPrice = 130;
+
+    //Getters
+    public static double getLvl1BackPackPrice() {
+        return lvl1BackPackPrice;
+    }
+
+    public static double getLvl2BackPackPrice() {
+        return lvl2BackPackPrice;
+    }
+
+    public static double getLvl3BackPackPrice() {
+        return lvl3BackPackPrice;
+    }
 }

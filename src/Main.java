@@ -33,6 +33,8 @@ public class Main {
                 Shop shop = new Shop();
                 Player player = new Player();
 
+                //I have to write while loop here
+
                 //First menu in shop
                 if (player.inventorySpace > player.defaultBackpack) {
                     System.out.println("---------------------------------------------------------------");
@@ -40,8 +42,19 @@ public class Main {
                             You don't have empty space in your inventory
                             You either buy new backpack or remove your items
                             Type "remove" and "item name" to remove your item
-                            If you don't want to remove item from your inventory go and buy fucking backpack you idiot\s""");
+                            If you don't want to remove item from your inventory go and buy fucking backpack you idiot
+                            Type "backpack" for buying backpack\s""");
 
+                    //User Input
+                    System.out.print("> ");
+                    userInput = scan.next();
+
+                    //Flow Control
+                    if (userInput.equalsIgnoreCase("backpack")) {
+
+                    }
+
+                    shop.removeItem();
                 }
                 menuShop();
 
@@ -212,7 +225,7 @@ public class Main {
 
     public static void menuShopFood() {
         System.out.println("---------------------------------------------------------------");
-        System.out.println("\t\t\t\t\t\tWelcome to Food Shop");
+        System.out.println("\t\t\t\t\tWelcome to Food Shop");
         System.out.println("[1] Bread -- 2.87 gold");
         System.out.println("[2] Rolls -- 1.24 gold");
         System.out.println("[3] Apple -- 0.82 gold");
