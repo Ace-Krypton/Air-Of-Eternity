@@ -7,11 +7,9 @@ public class Barbarian {
 
     //Barbarian default base stats
     int HP = 100;
-    String weapon;
-
     //First we have to choose random weapon amongst axes (which is barbarian's default weapon)
+    String weapon = Weapons.axes[rand.nextInt(Weapons.axes.length)];
+
     //Methods
-    public void weaponRand() {
-       weapon = Weapons.axes[rand.nextInt(Weapons.axes.length)];  //First Weapon (Random)
-    }
+
 }

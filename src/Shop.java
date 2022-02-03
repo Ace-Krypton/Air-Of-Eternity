@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Shop {
 
     //Menu Shop
+
     public void menuShop() {
         System.out.println("---------------------------------------------------------------");
         System.out.println("\t\t\t\t\t\tWelcome to Shop");
@@ -16,15 +17,18 @@ public class Shop {
     }
 
     //Food Shop
+
     List<String> cooks = new ArrayList<>();
     String[] foods = {"Rolls", "Breads", "Apple", "Cherry", "Walnut Bread"};
     Scanner scan = new Scanner(System.in);
 
     //Variables
+
     String userInput;   //For letters
     int input;  //For numbers
 
     //Fields
+
     final private static double breadPrice = 2.87;
     final private static double rollPrice = 1.24;
     final private static double applePrice = 0.82;
@@ -32,6 +36,7 @@ public class Shop {
     final private static double walnutBreadPrice = 5.78;
 
     //Getters
+
     public static double getBreadPrice() {
         return breadPrice;
     }
@@ -53,6 +58,7 @@ public class Shop {
     }
 
     //Methods
+
     public void preheatStove() {
         cooks.addAll(List.of(foods));
     }
@@ -91,12 +97,14 @@ public class Shop {
     }
 
     //Armor Shop
+
     List<String> armorsAsList = new ArrayList<>();
     String[] heavyArmors = {"Half plate", "Iron Mail", "Plate Mail", "Fluted", "Reflex", "Element Mail"};
     String[] lightArmors = {"Leather Breastplate", "Ring Armor", "Scale Armor", "Segmentator", "Talisman Breasplate", "Brigandine"};
     String[] robes = {"Hemp Clothes", "Adventure's Clothes", "Leather Armor", "Robe of Calm", "Cape of Prayer", "Gypsy Dress", "Holy Veil"};
 
     //Heavy armor prices
+
     final private static double halfPlatePrice = 540;
     final private static double ironMailPrice = 1880;
     final private static double plateMailPrice = 2600;
@@ -105,6 +113,7 @@ public class Shop {
     final private static double elementMailPrice = 9000;
 
     //Light armor prices
+
     final private static double leatherBreastPlatePrice = 36;
     final private static double ringArmorPrice = 194;
     final private static double scaleArmorPrice = 870;
@@ -113,6 +122,7 @@ public class Shop {
     final private static double brigandinePrice = 4980;
 
     //Robes prices
+
     final private static double hempClothesPrice = 12;
     final private static double adventureClothePrice = 96;
     final private static double leatherArmorPrice = 340;
@@ -205,15 +215,18 @@ public class Shop {
 
 
     //BackPacks
+
     List<String> backPacksAsList = new ArrayList<>(); //BackPacks as List (Just In Case)
     String[] backPacksAsArray = {"LVL 1 BackPack", "LVL 2 BackPack", "LVL 3 BackPack"}; //BackPacks as Array
 
     //BackPack Prices
+
     final private static double lvl1BackPackPrice = 50;
     final private static double lvl2BackPackPrice = 80;
     final private static double lvl3BackPackPrice = 130;
 
     //Getters
+
     public static double getLvl1BackPackPrice() {
         return lvl1BackPackPrice;
     }

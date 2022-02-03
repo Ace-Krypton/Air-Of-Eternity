@@ -16,6 +16,7 @@ public class Main {
             CreateCharacter create = new CreateCharacter();
             Shop shop = new Shop();
             Player player = new Player();
+            Barbarian barbarian = new Barbarian();
 
             //Variables
             String userInput;   //For letters
@@ -31,8 +32,6 @@ public class Main {
             //Option selecting
             switch (userInput.toUpperCase()) {
                 case "1" -> {   //Play
-                    //Boolean
-
                     while (true) {
                         //Character Creating Menu
                         create.menuForCharacterCreating();
@@ -44,7 +43,32 @@ public class Main {
                         //Flow Control
                         switch (userInput.toUpperCase()) {
                             case "1" -> {   //Barbarian
+                                System.out.println("+---------------------------------------------------------------+");
+                                System.out.println("""
+                            You are Barbarian, and enjoy copious amounts of STRENGTH and VITALITY!
+                            Beating things over the head is one of your primary goals in life.
+                            You are the most brutal warrior to have ever walked the planet.
+                            Resilience is in your nature, and fear does not exist in your vocabulary.\s""");
+                                System.out.println("+---------------------------------------------------------------+");
+                                System.out.println("Press 'F' to continue");
 
+                                //User Input
+                                System.out.print("> ");
+                                userInput = scan.next();
+
+                                //Checking that user enters something besides "F"
+                                while (!userInput.equalsIgnoreCase("F")) {
+                                    System.out.println("Invalid command! Please try again");
+                                    System.out.println("Press 'F' to continue");
+                                    System.out.print("> ");
+                                    userInput = scan.next();
+                                }
+
+                                //Flow control
+                                if (userInput.equalsIgnoreCase("F")) {
+                                    System.out.println("Your default weapon is " + barbarian.weapon + " , your HP is "
+                                    + barbarian.HP);
+                                }
                             }
 
                             case "2" -> {   //Paladin
@@ -239,8 +263,8 @@ public class Main {
                                             Player.inventory.add("Bread");
                                             player.inventorySpace++;
                                             System.out.println("You have successfully bought \"Bread\"");
-
                                         }
+
                                         else System.out.println("Sorry, you don't have sufficient funds");
                                     }
 
