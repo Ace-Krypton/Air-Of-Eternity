@@ -17,6 +17,7 @@ public class Main {
             Shop shop = new Shop();
             Player player = new Player();
             Barbarian barbarian = new Barbarian();
+            Dungeon dungeon = new Dungeon();
 
             //Variables
             String userInput;   //For letters
@@ -66,8 +67,79 @@ public class Main {
 
                                 //Flow control
                                 if (userInput.equalsIgnoreCase("F")) {
+                                    System.out.println("+---------------------------------------------------------------+");
                                     System.out.println("Your default weapon is " + barbarian.weapon + " , your HP is "
                                     + barbarian.HP);
+                                    System.out.println("+---------------------------------------------------------------+");
+                                }
+
+                                System.out.println("Press 'F' to continue");
+
+                                //User Input
+                                System.out.print("> ");
+                                userInput = scan.next();
+
+                                //Checking that user enters something besides "F"
+                                while (!userInput.equalsIgnoreCase("F")) {
+                                    System.out.println("Invalid command! Please try again");
+                                    System.out.println("Press 'F' to continue");
+                                    System.out.print("> ");
+                                    userInput = scan.next();
+                                }
+
+                                if (userInput.equalsIgnoreCase("F")) {
+                                    System.out.println("+---------------------------------------------------------------+");
+                                    System.out.println("Please enter your name");
+                                    System.out.print("> ");
+                                    player.name = scan.next();
+                                    System.out.println("+---------------------------------------------------------------+");
+                                    System.out.println("Your name is " + player.name + ". You are a Barbarian, of Human descent.");
+                                    System.out.println("""
+                                        You were born mysteriously. People always asked you how is bobby formed.
+                                        Raised by a rabbi, you lived in constant fear of scissors.
+                                        You always regretted being a Bokononian. So it goes.
+                                        One who can tie a cherry stem with your tongue, you are downright sexy.
+                                        Today you woke up hungry... ...a strange odor makes its way into your eyes. You cry.
+                                        Suddenly, a woman carrying another woman tosses the other woman into you.
+                                        Unsure of your sexuality, you kiss the woman, then punch her in the face.
+                                        This is your story.
+                                        
+                                        Press 'F' to continue\s""");
+                                    System.out.println("+---------------------------------------------------------------+");
+
+                                    //User Input
+                                    System.out.print("> ");
+                                    userInput = scan.next();
+
+                                    while (!userInput.equalsIgnoreCase("F")) {
+                                        System.out.println("Invalid command! Please try again");
+                                        System.out.println("Press 'F' to continue");
+                                        System.out.print("> ");
+                                        userInput = scan.next();
+                                    }
+                                    while (true) {
+                                        if (userInput.equalsIgnoreCase("F")) {
+                                            System.out.println("+---------------------------------------------------------------+");
+                                            System.out.println("What you want to do?");
+                                            System.out.println("[1] Enter The Story Mode (Under Development)");
+                                            System.out.println("[2] Enter The Dungeon");
+                                            System.out.println("+---------------------------------------------------------------+");
+                                            System.out.print("> ");
+                                            userInput = scan.next();
+
+                                            switch (userInput) {
+                                                case "1" -> {   //Story Mode
+
+                                                }
+
+                                                case "2" -> {   //Dungeon
+                                                    dungeon.adventure();
+                                                }
+
+                                                default -> System.out.println("Invalid command");
+                                            }
+                                        }
+                                    }
                                 }
                             }
 
