@@ -1,9 +1,11 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         //System Objects
         Scanner scan = new Scanner(System.in);
+        Random rand = new Random();
 
         //Boolean
         boolean mainWhile = true;
@@ -200,7 +202,36 @@ public class Main {
 
                                                                 if (userInput.equalsIgnoreCase("F")) {
                                                                     System.out.println("+---------------------------------------------------------------+");
+                                                                    String randomNewWeapon = Weapons.axes[rand.nextInt(Weapons.axes.length)];
+                                                                    System.out.println("Your new weapon is " + randomNewWeapon);
+                                                                    System.out.println("Your old weapon is " + barbarian.weapon);
+                                                                    System.out.println("[E] Equip      [S] Salvage");
+                                                                    System.out.print("> ");
+                                                                    userInput = scan.next();
 
+                                                                    while (!userInput.equalsIgnoreCase("E") || !userInput.equalsIgnoreCase("S")) {
+                                                                        System.out.println("Invalid command! Please try again");
+                                                                        System.out.println("[E] Equip      [S] Salvage");
+                                                                        System.out.print("> ");
+                                                                        userInput = scan.next();
+                                                                    }
+
+                                                                    switch (randomNewWeapon.toUpperCase()) {
+                                                                        case "WOODSMAN'S AXE" -> {
+                                                                            System.out.print("Your new weapon is Woodsman's Axe");
+                                                                            System.out.println(" [DMG] -> " + Weapons.woodsmanAxeDMG);
+                                                                        }
+
+                                                                        case "BATTLE AXE" -> {
+                                                                            System.out.print("Your new weapon is Woodsman's Axe");
+                                                                            System.out.println(" [DMG] -> " + Weapons.battleAxeDMG);
+                                                                        }
+
+                                                                        case "RAIDER AXE" -> {
+                                                                            System.out.print("Your new weapon is Woodsman's Axe");
+                                                                            System.out.println(" [DMG] -> " + Weapons.raiderAxeDMG);
+                                                                        }
+                                                                    }
                                                                 }
                                                             }
                                                         }

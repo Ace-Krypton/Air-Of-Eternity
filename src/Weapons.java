@@ -7,9 +7,9 @@ public class Weapons {
     static String[] staves = {"Scrimshaw Cane", "Rowan Crosier", "Saira's Staff"};
 
     //Axe damage
-    final private static double woodsmanAxeDMG = 6;
-    final private static double battleAxeDMG = 16;
-    final private static double raiderAxeDMG = 20;
+    final public static double woodsmanAxeDMG = 6;
+    final public static double battleAxeDMG = 16;
+    final public static double raiderAxeDMG = 20;
 
     //Getters
     public static double getWoodsmanAxeDMG() {
