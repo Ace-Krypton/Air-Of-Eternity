@@ -117,6 +117,7 @@ public class Main {
                                         System.out.print("> ");
                                         userInput = scan.next();
                                     }
+
                                     while (true) {
                                         if (userInput.equalsIgnoreCase("F")) {
                                             System.out.println("+---------------------------------------------------------------+");
@@ -127,14 +128,87 @@ public class Main {
                                             System.out.print("> ");
                                             userInput = scan.next();
 
-                                            switch (userInput) {
+                                            switch (userInput.toUpperCase()) {
                                                 case "1" -> {   //Story Mode
+                                                    System.out.println("+---------------------------------------------------------------+");
+                                                    System.out.println("\t\t\t\tUnknown Stranger");
+                                                    System.out.println("+---------------------------------------------------------------+");
+                                                    System.out.println("> I *knew* you were alive!");
+                                                    System.out.println("+---------------------------------------------------------------+");
+                                                    System.out.println("Press 'F' to continue");
+                                                    System.out.print("> ");
+                                                    userInput = scan.next();
 
+                                                    //Checking that user enters something besides "F"
+                                                    while (!userInput.equalsIgnoreCase("F")) {
+                                                        System.out.println("Invalid command! Please try again");
+                                                        System.out.println("Press 'F' to continue");
+                                                        System.out.print("> ");
+                                                        userInput = scan.next();
+                                                    }
+
+                                                    if (userInput.equalsIgnoreCase("F")) {
+                                                        System.out.println("+---------------------------------------------------------------+");
+                                                        System.out.println("\t\t\t\tUnknown Stranger");
+                                                        System.out.println("+---------------------------------------------------------------+");
+                                                        System.out.println("> Here, have some of these items to keep you company.");
+                                                        System.out.println("+---------------------------------------------------------------+");
+                                                        System.out.println("Press 'F' to continue");
+                                                        System.out.print("> ");
+                                                        userInput = scan.next();
+
+                                                        //Checking that user enters something besides "F"
+                                                        while (!userInput.equalsIgnoreCase("F")) {
+                                                            System.out.println("Invalid command! Please try again");
+                                                            System.out.println("Press 'F' to continue");
+                                                            System.out.print("> ");
+                                                            userInput = scan.next();
+                                                        }
+
+                                                        if (userInput.equalsIgnoreCase("F")) {
+                                                            System.out.println("+---------------------------------------------------------------+");
+                                                            System.out.println("\t\t\t\tUnknown Stranger");
+                                                            System.out.println("+---------------------------------------------------------------+");
+                                                            System.out.println("> Do listen, go to Gate 16, you may find solace there");
+                                                            System.out.println("+---------------------------------------------------------------+");
+                                                            System.out.println("Press 'F' to continue");
+                                                            System.out.print("> ");
+                                                            userInput = scan.next();
+
+                                                            //Checking that user enters something besides "F"
+                                                            while (!userInput.equalsIgnoreCase("F")) {
+                                                                System.out.println("Invalid command! Please try again");
+                                                                System.out.println("Press 'F' to continue");
+                                                                System.out.print("> ");
+                                                                userInput = scan.next();
+                                                            }
+
+                                                            if (userInput.equalsIgnoreCase("F")) {
+                                                                System.out.println("+---------------------------------------------------------------+");
+                                                                System.out.println("LOOT: You have received a heavy create of Gold Pieces!");
+                                                                System.out.println("+---------------------------------------------------------------+");
+                                                                System.out.println("Press 'F' to continue");
+                                                                System.out.print("> ");
+                                                                userInput = scan.next();
+
+                                                                while (!userInput.equalsIgnoreCase("F")) {
+                                                                    System.out.println("Invalid command! Please try again");
+                                                                    System.out.println("Press 'F' to continue");
+                                                                    System.out.print("> ");
+                                                                    userInput = scan.next();
+                                                                }
+
+                                                                if (userInput.equalsIgnoreCase("F")) {
+                                                                    System.out.println("+---------------------------------------------------------------+");
+
+                                                                }
+                                                            }
+                                                        }
+                                                    }
                                                 }
 
-                                                case "2" -> {   //Dungeon
-                                                    dungeon.adventure();
-                                                }
+                                                case "2" -> //Dungeon
+                                                        dungeon.adventure();
 
                                                 default -> System.out.println("Invalid command");
                                             }

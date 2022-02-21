@@ -191,7 +191,17 @@ public class Dungeon {
                     }
 
                     case "4" -> {
-                        System.out.println("\tYou run away from the " + enemy + "!");
+                        int bound = 2;  //0-2
+                        if (rand.nextInt(bound)  == 0) {
+                            System.out.println("As you sprint away from the " + enemy + ", its strike catches you in the" +
+                                    " back sending you sprawling onto the ground");
+                            int damageTaken = rand.nextInt(enemyattackDamage);
+                            System.out.println("You take " + damageTaken + " and are unable to escape");
+                            health -=damageTaken;
+                        }
+                        else {
+                            System.out.println("\tYou run away from the " + enemy + "!");
+                        }
                         continue GAME;
                     }
 
