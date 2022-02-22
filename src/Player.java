@@ -21,4 +21,14 @@ public class Player {
         }
     }
 
+    public void dayMechanics() {
+        int count = 1;
+        for (int row = 0; row < 5; row++) {
+            for (int col = 0; col < 6; col++) {
+                count++;
+                System.out.print(count);
+            }
+            System.out.println("");
+        }
+    }
 }

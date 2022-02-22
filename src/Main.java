@@ -203,7 +203,7 @@ public class Main {
                                                                 if (userInput.equalsIgnoreCase("F")) {
                                                                     System.out.println("+---------------------------------------------------------------+");
                                                                     String randomNewWeapon = Weapons.axes[rand.nextInt(Weapons.axes.length)];
-                                                                    while (randomNewWeapon.equals(barbarian.weapon)) randomNewWeapon = Weapons.axes[rand.nextInt(Weapons.axes.length)];
+                                                                    //while (randomNewWeapon.equals(barbarian.weapon)) randomNewWeapon = Weapons.axes[rand.nextInt(Weapons.axes.length)];
                                                                     System.out.println("Your new weapon is " + randomNewWeapon);
                                                                     System.out.println("Your old weapon is " + barbarian.weapon);
                                                                     System.out.println("[E] Equip      [S] Salvage");
@@ -219,28 +219,40 @@ public class Main {
 
                                                                     if (userInput.equalsIgnoreCase("E")) {  //Equip
                                                                         switch (randomNewWeapon.toUpperCase()) {
+                                                                            case "RAIDER AXE" -> {
+                                                                                System.out.print("Your new weapon is Raider Axe");
+                                                                                System.out.println(" [DMG] -> " + Weapons.raiderAxeDMG);
+                                                                                barbarian.weapon = randomNewWeapon;
+                                                                            }
+
+                                                                            case "BATTLE AXE" -> {
+                                                                                System.out.print("Your new weapon is Battle Axe");
+                                                                                System.out.println(" [DMG] -> " + Weapons.battleAxeDMG);
+                                                                                barbarian.weapon = randomNewWeapon;
+                                                                            }
+
                                                                             case "WOODSMAN'S AXE" -> {
                                                                                 System.out.print("Your new weapon is Woodsman's Axe");
                                                                                 System.out.println(" [DMG] -> " + Weapons.woodsmanAxeDMG);
                                                                                 barbarian.weapon = randomNewWeapon;
                                                                             }
 
-                                                                            case "BATTLE AXE" -> {
-                                                                                System.out.print("Your new weapon is Woodsman's Axe");
-                                                                                System.out.println(" [DMG] -> " + Weapons.battleAxeDMG);
-                                                                                barbarian.weapon = randomNewWeapon;
-                                                                            }
-
-                                                                            case "RAIDER AXE" -> {
-                                                                                System.out.print("Your new weapon is Woodsman's Axe");
-                                                                                System.out.println(" [DMG] -> " + Weapons.raiderAxeDMG);
-                                                                                barbarian.weapon = randomNewWeapon;
-                                                                            }
                                                                         }
                                                                     }
-                                                                    else {  //Salvage
 
+                                                                    System.out.println("Press 'F' to continue");
+                                                                    System.out.print("> ");
+                                                                    userInput = scan.next();
+
+                                                                    while (!userInput.equalsIgnoreCase("F")) {
+                                                                        System.out.println("Invalid command! Please try again");
+                                                                        System.out.println("Press 'F' to continue");
+                                                                        System.out.print("> ");
+                                                                        userInput = scan.next();
                                                                     }
+
+                                                                    System.out.println("HP: " + barbarian.HP + "ATK: " + barbarian.weapon);
+
                                                                 }
                                                             }
                                                         }
