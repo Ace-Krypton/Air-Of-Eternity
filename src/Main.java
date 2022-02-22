@@ -203,7 +203,7 @@ public class Main {
                                                                 if (userInput.equalsIgnoreCase("F")) {
                                                                     System.out.println("+---------------------------------------------------------------+");
                                                                     String randomNewWeapon = Weapons.axes[rand.nextInt(Weapons.axes.length)];
-                                                                    while (randomNewWeapon.equals(barbarian.weapon)) randomNewWeapon = Weapons.axes[rand.nextInt(Weapons.axes.length)];
+                                                                    //while (randomNewWeapon.equals(barbarian.weapon)) randomNewWeapon = Weapons.axes[rand.nextInt(Weapons.axes.length)];
                                                                     System.out.println("Your new weapon is " + randomNewWeapon);
                                                                     System.out.println("Your old weapon is " + barbarian.weapon);
                                                                     System.out.println("[E] Equip      [S] Salvage");
