@@ -7,6 +7,7 @@ public class Barbarian {
 
     //Barbarian default base stats
     int HP = 150;
+    int maxHP = 150;
 
     //First we have to choose random weapon amongst axes (which is barbarian's default weapon)
     String weapon = Weapons.starterKit[rand.nextInt(Weapons.starterKit.length)];

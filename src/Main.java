@@ -20,6 +20,7 @@ public class Main {
             Player player = new Player();
             Barbarian barbarian = new Barbarian();
             Dungeon dungeon = new Dungeon();
+            Quests quests = new Quests();
 
             //Variables
             String userInput;   //For letters
@@ -251,8 +252,13 @@ public class Main {
                                                                         userInput = scan.next();
                                                                     }
 
-                                                                    System.out.println("HP: " + barbarian.HP + "ATK: " + barbarian.weapon);
-
+                                                                    System.out.println("HP: " + barbarian.HP + " / " + barbarian.maxHP + " ATK: " + barbarian.weapon + " GOLD: " + player.gold);
+                                                                    System.out.println("+---------------------------------------------------------------+");
+                                                                    quests.randomQuest();
+                                                                    System.out.println("[Quest] " + quests.story);
+                                                                    System.out.println("+---------------------------------------------------------------+");
+                                                                    quests.questState();
+                                                                    System.out.println("+---------------------------------------------------------------+");
                                                                 }
                                                             }
                                                         }
