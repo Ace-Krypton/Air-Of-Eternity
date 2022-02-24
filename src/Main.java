@@ -252,12 +252,15 @@ public class Main {
                                                                         userInput = scan.next();
                                                                     }
 
-                                                                    System.out.println("HP: " + barbarian.HP + " / " + barbarian.maxHP + " ATK: " + barbarian.weapon + " GOLD: " + player.gold);
+                                                                    System.out.println("+---------------------------------------------------------------+");
+                                                                    System.out.println("| HP: " + barbarian.HP + " / " + barbarian.maxHP + " ATK: " + barbarian.weapon + " GOLD: " + player.gold + "                       |");
                                                                     System.out.println("+---------------------------------------------------------------+");
                                                                     quests.randomQuest();
-                                                                    System.out.println("[Quest] " + quests.story);
+                                                                    System.out.println("| [Quest] " + quests.story + "        |                                |");
                                                                     System.out.println("+---------------------------------------------------------------+");
+                                                                    System.out.println("|                              |                                |");
                                                                     quests.questState();
+                                                                    System.out.println("|                              |                                |");
                                                                     System.out.println("+---------------------------------------------------------------+");
                                                                 }
                                                             }
@@ -462,62 +465,67 @@ public class Main {
                                 switch (userInput) {
                                     case "1" -> {
                                         //Bread
-                                        if (Player.balance >= Shop.getBreadPrice()) {
+                                        if (Player.balance >= Shop.getBreadPrice() && shop.cooks.isEmpty()) {
                                             Player.balance -= Shop.getBreadPrice();
                                             Player.inventory.add("Bread");
                                             player.inventorySpace++;
                                             System.out.println("You have successfully bought \"Bread\"");
                                         }
 
-                                        else System.out.println("Sorry, you don't have sufficient funds");
+                                        else System.out.println("Sorry, you don't have sufficient funds or shop is empty" +
+                                                " please preheat oven");
                                     }
 
                                     case "2" -> {
                                         //Roll
-                                        if (Player.balance >= Shop.getRollPrice()) {
+                                        if (Player.balance >= Shop.getRollPrice() && shop.cooks.isEmpty()) {
                                             Player.balance -= Shop.getRollPrice();
                                             Player.inventory.add("Roll");
                                             player.inventorySpace++;
                                             System.out.println("You have successfully bought \"Roll\"");
                                         }
 
-                                        else System.out.println("Sorry, you don't have sufficient funds");
+                                        System.out.println("Sorry, you don't have sufficient funds or shop is empty" +
+                                                " please preheat oven");
                                     }
 
                                     case "3" -> {
                                         //Apple
-                                        if (Player.balance >= Shop.getApplePrice()) {
+                                        if (Player.balance >= Shop.getApplePrice() && shop.cooks.isEmpty()) {
                                             Player.balance -= Shop.getApplePrice();
                                             Player.inventory.add("Apple");
                                             player.inventorySpace++;
                                             System.out.println("You have successfully bought \"Apple\"");
                                         }
 
-                                        else System.out.println("Sorry, you don't have sufficient funds");
+                                        else System.out.println("Sorry, you don't have sufficient funds or shop is empty" +
+                                                " please preheat oven");
                                     }
 
                                     case "4" -> {
                                         //Cherry
-                                        if (Player.balance >= Shop.getCherryPrice()) {
+                                        if (Player.balance >= Shop.getCherryPrice() && shop.cooks.isEmpty()) {
                                             Player.balance -= Shop.getCherryPrice();
                                             Player.inventory.add("Cherry");
                                             player.inventorySpace++;
                                             System.out.println("You have successfully bought \"Cherry\"");
                                         }
 
-                                        else System.out.println("Sorry, you don't have sufficient funds");
+                                        else System.out.println("Sorry, you don't have sufficient funds or shop is empty" +
+                                                " please preheat oven");
                                     }
 
                                     case "5" -> {
                                         //Walnut Bread
-                                        if (Player.balance >= Shop.getWalnutBreadPrice()) {
+                                        if (Player.balance >= Shop.getWalnutBreadPrice() && shop.cooks.isEmpty()) {
                                             Player.balance -= Shop.getWalnutBreadPrice();
                                             Player.inventory.add("Walnut Bread");
                                             player.inventorySpace++;
                                             System.out.println("You have successfully bought \"Walnut Bread\"");
                                         }
 
-                                        else System.out.println("Sorry, you don't have sufficient funds");
+                                        else System.out.println("Sorry, you don't have sufficient funds or shop is empty" +
+                                                " please preheat oven");
                                     }
 
                                     case "X" -> {

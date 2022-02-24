@@ -24,6 +24,6 @@ public class Quests {
 
     public void questState() {
         if (questState) choiceTEMP++;
-        else System.out.println(story + "<--?-->");
+        else System.out.println("| [Quest] " + story + "        |                                |");
     }
 }
