@@ -219,6 +219,12 @@ public class Shop {
     List<String> backPacksAsList = new ArrayList<>(); //BackPacks as List (Just In Case)
     String[] backPacksAsArray = {"LVL 1 BackPack", "LVL 2 BackPack", "LVL 3 BackPack"}; //BackPacks as Array
 
+    //BackPack Spaces
+    final private static double lvl1BackPackSpace = 20;
+    final private static double lvl2BackPackSpace = 40;
+    final private static double lvl3BackPackSpace = 60;
+
+
     //BackPack Prices
 
     final private static double lvl1BackPackPrice = 50;
@@ -238,6 +244,19 @@ public class Shop {
     public static double getLvl3BackPackPrice() {
         return lvl3BackPackPrice;
     }
+
+    public static double getLvl1BackPackSpace() {
+        return lvl1BackPackSpace;
+    }
+
+    public static double getLvl2BackPackSpace() {
+        return lvl2BackPackSpace;
+    }
+
+    public static double getLvl3BackPackSpace() {
+        return lvl3BackPackSpace;
+    }
+
 
     public void menuForBackPacks() {
         System.out.println("---------------------------------------------------------------");

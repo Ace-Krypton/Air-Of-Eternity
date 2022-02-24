@@ -546,7 +546,6 @@ public class Main {
                         }
 
                         case "4" -> {   //BackPacks
-
                             //Loop
                             while (true) {
                                 shop.menuForBackPacks();
@@ -559,15 +558,33 @@ public class Main {
 
                                 switch (userInput.toUpperCase()) {
                                     case "1" -> {   //Level 1 backpack
+                                        if (Player.balance >= Shop.getLvl1BackPackPrice()) {
+                                            Player.balance -= Shop.getLvl1BackPackPrice();
+                                            player.defaultBackpack = Shop.getLvl1BackPackSpace();
+                                            System.out.println("You have successfully bought \"Level 1 BackPack\"");
+                                        }
 
+                                        else System.out.println("You don't have sufficient funds");
                                     }
 
                                     case "2" -> {   //Level 2 backpack
+                                        if (Player.balance >= Shop.getLvl2BackPackPrice()) {
+                                            Player.balance -= Shop.getLvl2BackPackPrice();
+                                            player.defaultBackpack = Shop.getLvl2BackPackSpace();
+                                            System.out.println("You have successfully bought \"Level 2 BackPack\"");
+                                        }
 
+                                        else System.out.println("You don't have sufficient funds");
                                     }
 
                                     case "3" -> {   //Level 3 backpack
+                                        if (Player.balance >= Shop.getLvl3BackPackPrice()) {
+                                            Player.balance -= Shop.getLvl3BackPackPrice();
+                                            player.defaultBackpack = Shop.getLvl3BackPackSpace();
+                                            System.out.println("You have successfully bought \"Level 3 BackPack\"");
+                                        }
 
+                                        else System.out.println("You don't have sufficient funds");
                                     }
 
                                     case "X" -> {

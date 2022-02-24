@@ -12,7 +12,7 @@ public class Player {
     public static double balance = 90;
     String name;
     int inventorySpace;
-    int defaultBackpack = 10;
+    double defaultBackpack = 10;
     double gold;
 
     //Methods
