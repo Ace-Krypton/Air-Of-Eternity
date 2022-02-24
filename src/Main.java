@@ -462,10 +462,10 @@ public class Main {
                                 userInput = scan.next();
 
                                 //Switch
-                                switch (userInput) {
+                                switch (userInput.toUpperCase()) {
                                     case "1" -> {
                                         //Bread
-                                        if (Player.balance >= Shop.getBreadPrice() && shop.cooks.isEmpty()) {
+                                        if (Player.balance >= Shop.getBreadPrice() && !shop.cooks.isEmpty()) {
                                             Player.balance -= Shop.getBreadPrice();
                                             Player.inventory.add("Bread");
                                             player.inventorySpace++;
@@ -478,7 +478,7 @@ public class Main {
 
                                     case "2" -> {
                                         //Roll
-                                        if (Player.balance >= Shop.getRollPrice() && shop.cooks.isEmpty()) {
+                                        if (Player.balance >= Shop.getRollPrice() && !shop.cooks.isEmpty()) {
                                             Player.balance -= Shop.getRollPrice();
                                             Player.inventory.add("Roll");
                                             player.inventorySpace++;
@@ -491,7 +491,7 @@ public class Main {
 
                                     case "3" -> {
                                         //Apple
-                                        if (Player.balance >= Shop.getApplePrice() && shop.cooks.isEmpty()) {
+                                        if (Player.balance >= Shop.getApplePrice() && !shop.cooks.isEmpty()) {
                                             Player.balance -= Shop.getApplePrice();
                                             Player.inventory.add("Apple");
                                             player.inventorySpace++;
@@ -504,7 +504,7 @@ public class Main {
 
                                     case "4" -> {
                                         //Cherry
-                                        if (Player.balance >= Shop.getCherryPrice() && shop.cooks.isEmpty()) {
+                                        if (Player.balance >= Shop.getCherryPrice() && !shop.cooks.isEmpty()) {
                                             Player.balance -= Shop.getCherryPrice();
                                             Player.inventory.add("Cherry");
                                             player.inventorySpace++;
@@ -517,7 +517,7 @@ public class Main {
 
                                     case "5" -> {
                                         //Walnut Bread
-                                        if (Player.balance >= Shop.getWalnutBreadPrice() && shop.cooks.isEmpty()) {
+                                        if (Player.balance >= Shop.getWalnutBreadPrice() && !shop.cooks.isEmpty()) {
                                             Player.balance -= Shop.getWalnutBreadPrice();
                                             Player.inventory.add("Walnut Bread");
                                             player.inventorySpace++;
@@ -547,6 +547,36 @@ public class Main {
 
                         case "4" -> {   //BackPacks
 
+                            //Loop
+                            while (true) {
+                                shop.menuForBackPacks();
+
+                                //User input and Switch
+                                System.out.print("> ");
+                                userInput = scan.next();
+
+
+
+                                switch (userInput.toUpperCase()) {
+                                    case "1" -> {   //Level 1 backpack
+
+                                    }
+
+                                    case "2" -> {   //Level 2 backpack
+
+                                    }
+
+                                    case "3" -> {   //Level 3 backpack
+
+                                    }
+
+                                    case "X" -> {
+                                        continue MAINWHILE;
+                                    }
+
+                                    default -> System.out.println("Invalid Command");
+                                }
+                            }
                         }
 
                         default -> System.out.println("Invalid command");
